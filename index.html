@@ -37,13 +37,20 @@
         }
 
         async function doSign() {
+            const accts = await web3.eth.getAccounts();
+            console.log('accts', accts);
+            const from = accts[0];
             //web3.eth.sign("Hello world", "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe")
-            const sign = await web3.eth.sign("Hello world");
+            const sign = await web3.eth.sign("Hello world", from);
             console.log('sign', sign);
         }
 
         async function doTrans() {
+            const accts = await web3.eth.getAccounts();
+            console.log('accts', accts);
+            const from = accts[0];
             const t = web3.eth.sendTransaction({
+                from: from,
                 to: '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe',
                 value: '1000000000000000'
             });
