@@ -35,6 +35,20 @@
                 document.getElementById("output").innerHTML = err;
             }
         }
+
+        async function doSign() {
+            //web3.eth.sign("Hello world", "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe")
+            const sign = await web3.eth.sign("Hello world");
+            console.log('sign', sign);
+        }
+
+        async function doTrans() {
+            const t = web3.eth.sendTransaction({
+                to: '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe',
+                value: '1000000000000000'
+            });
+            console.log('transaction', t);
+        }
         
     </script>
 </head>
@@ -46,5 +60,9 @@
     <br />
     <br />
     <div id="output"></div>
+    <br/>
+    <button type="button" onClick="doSign();">sign</button>
+    <br/>
+    <button type="button" onClick="doTrans();">do transaction</button>
 </body>
 </html>
