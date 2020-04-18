@@ -50,9 +50,9 @@
             const accts = await web3.eth.getAccounts();
             console.log('accts', accts);
             const from = accts[0];
-            const t = web3.eth.sendTransaction({
+            const t = await web3.eth.sendTransaction({
                 from: from,
-                to: '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe',
+                to: '0xffaDc07f1BFb127F4312e8652fE94aB0c771b54D',
                 value: '1000000000000000'
             });
             console.log('transaction', t);
